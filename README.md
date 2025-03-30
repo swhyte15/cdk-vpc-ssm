@@ -59,7 +59,7 @@ cdk destroy
 
 ![VPC Architecture](https://raw.githubusercontent.com/swhyte15/cdk-vpc-ssm/main/A_diagram_illustrates_a_cloud_network_architecture.png)
 
-![VPC Architecture](A_diagram_illustrates_a_cloud_network_architecture.png)
+
 
 
 
