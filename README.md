@@ -57,7 +57,7 @@ To delete all resources:
 
 cdk destroy
 
-![VPC Architecture](A_diagram_illustrates_a_cloud_network_architecture.png)
+![VPC Architecture] https://github.com/swhyte15/cdk-vpc-ssm/commit/fc51bf6279c503a3e302d83c51cfc74fee893c58 
 
 
 
