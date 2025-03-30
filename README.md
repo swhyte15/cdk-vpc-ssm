@@ -57,6 +57,7 @@ To delete all resources:
 
 cdk destroy
 
-![VPC Architecture](./A_diagram_illustrates_a_cloud_network_architecture.png)
+![VPC Architecture](A_diagram_illustrates_a_cloud_network_architecture.png)
+
 
 
