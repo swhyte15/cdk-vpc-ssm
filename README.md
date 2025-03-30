@@ -1,58 +1,62 @@
+# CDK VPC + EC2 + SSM Setup
 
-# Welcome to your CDK Python project!
+This AWS CDK project deploys a secure and modular VPC with:
 
-This is a blank project for CDK development with Python.
+- 🛡️ Two **public and private subnets** across 2 AZs
+- 🖥️ One **Amazon Linux 2 t3.micro** instance in a private subnet
+- 💾 **50GB EBS** root volume
+- 🔒 **SSM Agent** support with IAM Role
+- 🌐 **Outbound internet** access via NAT Gateway
+- 💻 Fully accessible via **AWS Systems Manager Session Manager** (no SSH needed)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+---
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+## 📁 Project Structure
 
-To manually create a virtualenv on MacOS and Linux:
+```bash
+cdk-vpc-ssm/
+├── app.py                   # CDK app entrypoint
+├── cdk.json                 # CDK project config
+├── requirements.txt         # Python dependencies
+├── .gitignore               # Ignored files
+└── cdk_vpc_ssm/
+    ├── __init__.py
+    └── vpc_ssm_stack.py     # Main stack definition
+🚀 Getting Started
+Prerequisites
+AWS CLI configured (aws configure)
 
-```
-$ python -m venv .venv
-```
+Node.js & AWS CDK v2 (npm install -g aws-cdk)
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+Python 3.7+
 
-```
-$ source .venv/bin/activate
-```
+Virtualenv (python -m venv .venv)
 
-If you are a Windows platform, you would activate the virtualenv like this:
+# Activate virtual environment
+.venv\Scripts\activate         # Windows
+# OR
+source .venv/bin/activate      # Mac/Linux
 
-```
-% .venv\Scripts\activate.bat
-```
+# Install Python packages
+pip install -r requirements.txt
 
-Once the virtualenv is activated, you can install the required dependencies.
+cdk synth
+cdk deploy
 
-```
-$ pip install -r requirements.txt
-```
+🧠 Usage
+Once deployed:
 
-At this point you can now synthesize the CloudFormation template for this code.
+Go to AWS Systems Manager > Session Manager
 
-```
-$ cdk synth
-```
+Start a session with the running EC2 instance
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
+No SSH, no key pairs needed!
 
-## Useful commands
+Cleanup
+To delete all resources:
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+cdk destroy
 
-Enjoy!
+![VPC Architecture](./A_diagram_illustrates_a_cloud_network_architecture.png)
+
+
